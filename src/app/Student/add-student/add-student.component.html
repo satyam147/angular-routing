@@ -1,0 +1,16 @@
+<div>
+  <div class="form-group my-2">
+    <label for="name">Name</label>
+    <input type="text" [(ngModel)]="person.name" class="form-control" name="name" id="name" placeholder="Name">
+  </div>
+  <div class="form-group my-2">
+    <label for="branch">Branch</label>
+    <input type="text" class="form-control" name="branch" [(ngModel)]="person.branch" id="branch" aria-describedby=""
+           placeholder="Branch">
+  </div>
+  <div class="form-group my-2">
+    <label for="id">Id</label>
+    <input type="text" class="form-control" [(ngModel)]="person.id" name="id" id="id" placeholder="Id">
+  </div>
+  <button class="btn btn-primary" (click)="createStudent()">Add Student</button>
+</div>

@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-md-12">
+    <form (ngSubmit)="createUser()" #userform="ngForm">
+      <div ngModelGroup="user_info">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" name="name" id="name" ngModel
+                 aria-describedby="name_help"
+                 placeholder="Name" #name="ngModel" required [min]="10" [max]="15">
+          <small id="name_help" class="form-text text-muted" *ngIf="name.touched && !name.valid">NAme is
+            required</small>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" name="email" id="email" ngModel aria-describedby="email_help"
+                 placeholder="Email" required email #email="ngModel">
+          <small id="email_help" class="form-text text-muted" *ngIf="email.touched && !email.valid">Enter a valid
+            email</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <select class="form-control" name="gender" id="gender" ngModel required #gender="ngModel">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        <small id="gender_help" class="form-text text-muted" *ngIf="gender.touched && !gender.valid">Gender is
+          required</small>
+      </div>
+
+      <input class="btn btn-primary m-2" type="submit" value="Submit" [disabled]="!userform.valid">
+      <button type="button" (click)="setForm()" class="btn btn-warning m-2">Set Form</button>
+      <button type="button" (click)="patchForm()" class="btn btn-warning m-2">Patch Form</button>
+      <button type="button" (click)="resetForm()" class="btn btn-danger m-2">Reset Form</button>
+    </form>
+  </div>
+  <div class="col-md-12" *ngIf="userCreated">
+    <p> User Name: {{ _name }}</p>
+    <p> Email : {{ _email }}</p>
+    <p> Gender : {{ _gender }}</p>
+  </div>
+</div>

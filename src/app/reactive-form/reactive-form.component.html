@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-md-12">
+    <form [formGroup]="userform" (ngSubmit)="createUser()">
+      <div formGroupName="user_info">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" name="name" id="name" formControlName="name"
+                 aria-describedby="name_help" placeholder="Name">
+          <small id="name_help" class="form-text text-muted"
+                 *ngIf="userform.get('user_info.name')!.touched && !userform.get('user_info.name')!.valid">Name is
+            required</small>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" name="email" id="email" formControlName="email"
+                 aria-describedby="email+help"
+                 placeholder="Email" (keydown)="checkEmail()" required>
+          <small id="email+help" class="form-text text-muted"
+                 *ngIf="userform.get('user_info.email')!.touched && !userform.get('user_info.email')!.valid">
+            <span *ngIf="userform.get('user_info.email')!.hasError('required')">Email is required</span>
+            <span *ngIf="userform.get('user_info.email')!.hasError('email')">Inavlid Email</span>
+          </small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <select class="form-control" name="gender" id="gender" formControlName="gender">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+      <div class="row m-2">
+        <div class="col-md-12">
+          <button type="button" class="btn btn-warning float-end" (click)="onAddHobby()">Add Hobby</button>
+        </div>
+      </div>
+      <div formArrayName="hobbies">
+        <div class="form-group" *ngFor="let hobby of hobbyControls; let i = index">
+          <input type="text" class="form-control" [formControlName]="i" aria-describedby="helpId"
+                 placeholder="Hobby">
+          <small id="helpId" class="form-text text-muted">Help text</small>
+        </div>
+      </div>
+      <input type="submit" class="btn btn-primary my-2" value="submit">
+    </form>
+  </div>
+</div>

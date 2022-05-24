@@ -1,0 +1,9 @@
+
+<div *ngIf="studentService.students.length > 0; else noStudents">
+  <app-student *ngFor="let student of studentService.students"
+  [name]="student.name" [branch]="student.branch" [id]="student.id"></app-student>
+</div>
+
+<ng-template #noStudents>
+  <p> No Students</p>
+</ng-template>

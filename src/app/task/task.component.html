@@ -1,0 +1,63 @@
+<form [formGroup]="form" (ngSubmit)="createTask()">
+  <div class="form-group my-2">
+    <label for="first_name">First Name</label>
+    <input type="text"
+           class="form-control" name="first_name" id="first_name" aria-describedby="first_name_help"
+           placeholder="First Name" formControlName="first_name">
+    <small id="first_name_help" class="form-text text-muted"></small>
+  </div>
+  <div class="form-group my-2">
+    <label for="last_name">Last Name</label>
+    <input type="text" class="form-control" name="last_name" id="last_name" aria-describedby="last_name_help"
+           placeholder="Last Name" formControlName="last_name">
+    <small id="last_name_help" class="form-text text-muted"></small>
+  </div>
+  <div class="form-group my-2">
+    <label for="email">Email</label>
+    <input type="email"
+           class="form-control" name="email" id="email" formControlName="email" aria-describedby="email_help" placeholder="Email">
+    <small id="email_help" class="form-text text-muted"></small>
+  </div>
+  <div class="form-group my-2">
+    <label for="mobile">Mobile</label>
+    <input type="text"
+           class="form-control" name="mobile" formControlName="mobile" id="mobile" aria-describedby="mobile_help" placeholder="Mobile">
+    <small id="mobile_help" class="form-text text-muted"></small>
+  </div>
+  <div class="my-2">
+    <label class="d-block">Gender</label>
+  <div class="form-check form-check-inline mx-2">
+    <label class="form-check-label">
+      <input type="radio" class="form-check-input" formControlName="gender" name="gender" id="male" value="male">
+      Male
+    </label>
+  </div>
+  <div class="form-check form-check-inline mx-2">
+    <label class="form-check-label">
+      <input type="radio" class="form-check-input" formControlName="gender" name="gender" id="female" value="female">
+      Fe-Male
+    </label>
+  </div>
+  </div>
+  <div class="form-check">
+    <label class="form-check-label">
+      <input type="checkbox" class="form-check-input" formControlName="hobbies" name="hobbie" id="hobbie" value="painting">
+      Painting
+    </label>
+  </div>
+
+  <div class="form-check">
+    <label class="form-check-label">
+      <input type="checkbox" class="form-check-input" formControlName="hobbies" name="hobbie" id="playing" value="painting">
+      Playing
+    </label>
+  </div>
+
+  <div class="form-group my-2">
+    <label for="image">Image</label>
+    <input type="file" class="form-control-file" name="image" id="image" placeholder="Image"
+          (change)="fileChanged($event)" aria-describedby="image_help">
+    <small id="image_help" class="form-text text-muted"></small>
+  </div>
+  <input type="submit" class="btn btn-primary" value="Create User">
+</form>

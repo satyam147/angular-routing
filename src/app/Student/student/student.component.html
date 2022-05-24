@@ -1,0 +1,6 @@
+<p [ngStyle]="{
+  'color': getColor()
+  }">Student Name: {{ name }} with id: {{ id }}
+  <a [routerLink]="['/student',id]" [queryParams]="{id:id}">View Details</a>
+</p>
+
